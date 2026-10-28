@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Codebase Navigator</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="page-header">
+        <p class="eyebrow">Understand a codebase</p>
+        <h1>Codebase Navigator</h1>
+        <p class="intro">Ask a question and get an explanation grounded in repository source.</p>
+      </header>
+
+      <form id="analysis-form" class="panel">
+        <label for="repository">Repository URL or local path</label>
+        <input
+          id="repository"
+          name="repository"
+          type="text"
+          placeholder="https://github.com/owner/repository"
+          autocomplete="url"
+          required
+        >
+
+        <label for="question">Question</label>
+        <textarea
+          id="question"
+          name="question"
+          rows="4"
+          placeholder="How does authentication work?"
+          required
+        ></textarea>
+
+        <div class="form-footer">
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+          <button id="analyze-button" type="submit">Analyze</button>
+        </div>
+      </form>
+
+      <p id="error" class="error" role="alert" hidden></p>
+
+      <section id="results" class="results" aria-live="polite" hidden>
+        <article class="panel answer-panel">
+          <h2>Answer</h2>
+          <p id="answer" class="answer"></p>
+        </article>
+        <section class="sources-panel">
+          <h2>Sources</h2>
+          <ul id="sources" class="sources"></ul>
+          <p id="no-sources" class="muted" hidden>No source locations were available for this answer.</p>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
